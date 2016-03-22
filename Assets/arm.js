@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var planeSpeed = 50;
+var planeSpeed = 2;
 
 function Start () {
 
@@ -8,5 +8,5 @@ function Start () {
 
 function Update ()
 {
-	transform.Rotate(0, planeSpeed+Time.deltaTime, 0);
+	transform.Rotate(0, -planeSpeed+Time.deltaTime, 0);
 }
