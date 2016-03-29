@@ -10,5 +10,5 @@ function Start ()
 function Update ()
 {
 	transform.eulerAngles.y = head.eulerAngles.y;
-	print(head.eulerAngles.y);
+	//print(head.eulerAngles.y);
 }
