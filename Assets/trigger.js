@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var anim : Animator;
+var arm : GameObject;
 
 function Start ()
 {
@@ -16,13 +17,14 @@ function Update () {
 	// }
 }
 
-function OnCollisionEnter(col : Collision)
+function OnTriggerEnter(col : Collider)
 {
 	print('collision');
-    if(col.gameObject.name == "Plane")
-    {
+
+    // if(col.gameObject.name == "Plane")
+    // {
         // Destroy(col.gameObject);
         // col.animation.Play("jump");
-        anim.SetTrigger('jumpHash');
-    }
+        arm.GetComponent.<Animation>().Play('jump');
+    // }
 }
