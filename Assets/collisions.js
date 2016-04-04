@@ -6,6 +6,12 @@ var henDownP3 = 0;
 
 var henFlutter : Transform;
 
+var Henp1 : GameObject;
+Henp1 = GameObject.Find("Henp1");
+
+var Henp3 : GameObject;
+Henp3 = GameObject.Find("Henp3");
+
 function Start ()
 {
 }
@@ -20,15 +26,20 @@ function OnTriggerEnter(col : Collider)
 	{
     	arm.GetComponent.<Animation>().Play('jump');
 	}
-	else if(col.gameObject.name == "Hen p1")
+	else if(col.gameObject.name == "Henp1")
 	{
+
 		henDownP1++;
-		Instantiate(henFlutter, Vector3(0,0,0), Quaternion.identity);
+		var henCloneP1 : GameObject = Instantiate(henFlutter, transform.position, Quaternion.identity) as GameObject;
+		henCloneP1.transform.parent = Henp1.transform;
+
 	}
-	else if(col.gameObject.name == "Hen p3")
+	else if(col.gameObject.name == "Henp3")
 	{
 		henDownP3++;
-		Instantiate(henFlutter, Vector3(0,0,0), Quaternion.identity);
+		var henCloneP3 : GameObject = Instantiate(henFlutter, transform.position, Quaternion.identity) as GameObject;
+		henCloneP3.transform.parent = Henp3.transform;
+
 	}
 
 	// if()
