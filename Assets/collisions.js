@@ -5,6 +5,7 @@ var henDownP1 = 0;
 var henDownP3 = 0;
 
 var henFlutter : Transform;
+var chickenSound : Transform;
 
 private var Henp1 : GameObject;
 private var Henp3 : GameObject;
@@ -38,7 +39,8 @@ function OnTriggerEnter(col : Collider)
 		henClones.Push(henCloneP1);
 		henCloneP1.transform.parent = Henp1.transform;
 
-		//henCloneP1.GetComponent.<Animation>().Play("henAway");
+		var chickenCrash1 : Transform = Instantiate(chickenSound, transform.position, Quaternion.identity);
+		chickenCrash1.transform.parent = Henp1.transform;
 	}
 	else if(col.gameObject.name == "Henp3")
 	{
@@ -46,6 +48,9 @@ function OnTriggerEnter(col : Collider)
 		var henCloneP3 : Transform = Instantiate(henFlutter, transform.position, Quaternion.identity);
 		henClones.Push(henCloneP3);
 		henCloneP3.transform.parent = Henp3.transform;
+
+		var chickenCrash3 : Transform = Instantiate(chickenSound, transform.position, Quaternion.identity);
+		chickenCrash3.transform.parent = Henp3.transform;
 	}
 
 	// if()

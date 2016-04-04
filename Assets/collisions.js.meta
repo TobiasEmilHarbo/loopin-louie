@@ -1,14 +1,13 @@
 fileFormatVersion: 2
 guid: 0b00dc4fa20c4b64ab7f6c02de3d3db6
-timeCreated: 1459777018
+timeCreated: 1459783229
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - arm: {instanceID: 0}
-  - henFlutter: {fileID: 499414, guid: cfc29618f5e921e4488c786ae7f3344a, type: 2}
-  - Henp1: {fileID: 186884, guid: d9f0aec7657b3e34c873c203daad75ef, type: 2}
-  - Henp3: {fileID: 186884, guid: d9f0aec7657b3e34c873c203daad75ef, type: 2}
+  - henFlutter: {instanceID: 0}
+  - chickenSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

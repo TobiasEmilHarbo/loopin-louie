@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var hasBumped = false;
+private var hasBumped = false;
 
 function Start () {
 
