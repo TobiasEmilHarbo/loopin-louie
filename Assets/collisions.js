@@ -8,14 +8,14 @@ var henFlutter : Transform;
 var chickenSound : Transform;
 
 private var Henp1 : GameObject;
-private var Henp3 : GameObject;
+//private var Henp3 : GameObject;
 
 var henClones = new Array();
 
 function Start ()
 {
 	Henp1 = GameObject.Find("Henp1");
-	Henp3 = GameObject.Find("Henp3");
+	//Henp3 = GameObject.Find("Henp3");
 }
 
 function Update ()
@@ -35,25 +35,32 @@ function OnTriggerEnter(col : Collider)
 	else if(col.gameObject.name == "Henp1")
 	{
 		henDownP1++;
-		var henCloneP1 : Transform = Instantiate(henFlutter, transform.position, Quaternion.identity);
-		henClones.Push(henCloneP1);
-		henCloneP1.transform.parent = Henp1.transform;
+		Invoke("CreateFlyingHen", 0.3);
 
-		var chickenCrash1 : Transform = Instantiate(chickenSound, transform.position, Quaternion.identity);
-		chickenCrash1.transform.parent = Henp1.transform;
+		ChickenCrash();
 	}
 	else if(col.gameObject.name == "Henp3")
 	{
 		henDownP3++;
-		var henCloneP3 : Transform = Instantiate(henFlutter, transform.position, Quaternion.identity);
-		henClones.Push(henCloneP3);
-		henCloneP3.transform.parent = Henp3.transform;
+		Invoke("CreateFlyingHen", 0.3);
 
-		var chickenCrash3 : Transform = Instantiate(chickenSound, transform.position, Quaternion.identity);
-		chickenCrash3.transform.parent = Henp3.transform;
+		ChickenCrash();
 	}
 
 	// if()
 
 	print(henDownP3);
+}
+
+function CreateFlyingHen()
+{
+	var henClone : Transform = Instantiate(henFlutter, transform.position, Quaternion.identity);
+	henClones.Push(henClone);
+	henClone.transform.parent = Henp1.transform;
+}
+
+function ChickenCrash()
+{
+	var chickenCrash : Transform = Instantiate(chickenSound, transform.position, Quaternion.identity);
+	chickenCrash.transform.parent = Henp1.transform;
 }
