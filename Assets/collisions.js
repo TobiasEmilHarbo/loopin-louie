@@ -7,6 +7,8 @@ var henDownP3 = 0;
 var henFlutter : Transform;
 var chickenSound : Transform;
 
+var louie : GameObject;
+
 private var Henp1 : GameObject;
 //private var Henp3 : GameObject;
 
@@ -16,6 +18,8 @@ function Start ()
 {
 	Henp1 = GameObject.Find("Henp1");
 	//Henp3 = GameObject.Find("Henp3");
+
+	louie = GameObject.Find("Louie");
 }
 
 function Update ()
@@ -47,7 +51,10 @@ function OnTriggerEnter(col : Collider)
 		ChickenCrash();
 	}
 
-	// if()
+	if(henDownP1 >= 3 || henDownP3 >= 3)
+	{
+		Invoke("StopPlane", 2);
+	}
 
 	print(henDownP3);
 }
@@ -63,4 +70,9 @@ function ChickenCrash()
 {
 	var chickenCrash : Transform = Instantiate(chickenSound, transform.position, Quaternion.identity);
 	chickenCrash.transform.parent = Henp1.transform;
+}
+
+function StopPlane()
+{
+	louie.GetComponent.<arm>().tmpVar = 0;
 }
