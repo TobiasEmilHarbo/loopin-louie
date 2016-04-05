@@ -3,11 +3,13 @@
 var arm : GameObject;
 var henDownP1 = 0;
 var henDownP3 = 0;
+var winCounter = 0;
 
 var henFlutter : Transform;
 var chickenSound : Transform;
+var winSound : Transform;
 
-var louie : GameObject;
+private var louie : GameObject;
 
 private var Henp1 : GameObject;
 //private var Henp3 : GameObject;
@@ -51,9 +53,17 @@ function OnTriggerEnter(col : Collider)
 		ChickenCrash();
 	}
 
-	if(henDownP1 >= 3 || henDownP3 >= 3)
+	if(henDownP1 == 3 || henDownP3 == 3)
 	{
-		Invoke("StopPlane", 2);
+		if(winCounter == 0)
+		{
+			winCounter++;
+			Invoke("StopPlane", 2);
+		}
+		else
+		{
+			//do stuff
+		}
 	}
 
 	print(henDownP3);
@@ -75,4 +85,7 @@ function ChickenCrash()
 function StopPlane()
 {
 	louie.GetComponent.<arm>().tmpVar = 0;
+
+	var win : Transform = Instantiate(winSound, transform.position, Quaternion.identity);
+	win.transform.parent = Henp1.transform;
 }
