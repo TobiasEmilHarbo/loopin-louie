@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var planeSpeed = 2;
+public var tmpVar = 1;
 
 function Start () {
 
@@ -8,5 +9,5 @@ function Start () {
 
 function Update ()
 {
-	transform.Rotate(0, -planeSpeed+Time.deltaTime, 0);
+	transform.Rotate(0, (-planeSpeed+Time.deltaTime)*tmpVar, 0);
 }
